@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiran &amp; Ramya · Wedding</title>
+  <meta name="description" content="Kiran & Ramya are getting married. Join us as we celebrate our forever." />
+  <meta name="theme-color" content="#FBF7F2" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%239B5A64'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='26' fill='%23E3CE9B' text-anchor='middle'%3EKR%3C/text%3E%3C/svg%3E" />
+
+  <!-- social share preview (WhatsApp / iMessage / Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kiran &amp; Ramya · Wedding" />
+  <meta property="og:description" content="Two hearts, one forever. Step into our story." />
+  <meta property="og:image" content="assets/images/portrait-pink.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" as="image" href="assets/images/dance-meadow.jpg" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Parisienne&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__ring"></div>
+      <div class="preloader__names">
+        <span>K</span><span class="amp">&amp;</span><span>R</span>
+      </div>
+      <p class="preloader__text">a love story</p>
+    </div>
+  </div>
+
+  <!-- ===== WELCOME VEIL (first gesture starts the music) ===== -->
+  <div class="enter" id="enterOverlay" role="button" tabindex="0" aria-label="Enter the site with music">
+    <div class="enter__inner">
+      <p class="enter__eyebrow">the wedding of</p>
+      <h2 class="enter__names">Kiran <span>&amp;</span> Ramya</h2>
+      <svg class="ornament" viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="10" y1="10" x2="62" y2="10" stroke="currentColor" stroke-width="1"/>
+        <line x1="118" y1="10" x2="170" y2="10" stroke="currentColor" stroke-width="1"/>
+        <circle cx="66" cy="10" r="1.6" fill="currentColor"/>
+        <circle cx="114" cy="10" r="1.6" fill="currentColor"/>
+        <path d="M82 10 C 78 5, 72 5, 71 10 C 72 15, 78 15, 82 10 Z" fill="#E3CE9B"/>
+        <path d="M98 10 C 102 5, 108 5, 109 10 C 108 15, 102 15, 98 10 Z" fill="#E3CE9B"/>
+        <path d="M90 2 L94 10 L90 18 L86 10 Z" fill="currentColor"/>
+      </svg>
+      <button type="button" class="enter__btn">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 18.5a2.75 2.75 0 1 1-1.5-2.45V6.2a1 1 0 0 1 .77-.98l8-1.9A1 1 0 0 1 17.5 4.3v11.2a2.75 2.75 0 1 1-1.5-2.45V7.06l-7 1.66Z" fill="currentColor"/></svg>
+        click for song
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== FLOATING PETALS CANVAS ===== -->
+  <canvas class="petals" id="petals" aria-hidden="true"></canvas>
+
+  <!-- ===== BACKGROUND MUSIC ===== -->
+  <audio id="bgm" loop preload="auto">
+    <source src="assets/audio/until-i-found-you.mp3" type="audio/mpeg" />
+  </audio>
+  <button class="music-btn" id="musicBtn" aria-label="Play music" aria-pressed="false" title="Until I Found You — Stephen Sanchez">
+    <svg class="music-btn__disc" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <path d="M9 18.5a2.75 2.75 0 1 1-1.5-2.45V6.2a1 1 0 0 1 .77-.98l8-1.9A1 1 0 0 1 17.5 4.3v11.2a2.75 2.75 0 1 1-1.5-2.45V7.06l-7 1.66Z" fill="currentColor"/>
+    </svg>
+    <span class="music-btn__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </button>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__brand" data-scroll>K <span>&amp;</span> R</a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#story" data-scroll>Our Story</a>
+      <a href="#gallery" data-scroll class="nav__cta">Moments</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero__bg" data-parallax>
+      <img src="assets/images/dance-meadow.jpg" alt="Kiran and Ramya dancing" fetchpriority="high" />
+    </div>
+    <div class="hero__veil"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal">Together with their families</p>
+      <h1 class="hero__names">
+        <span class="reveal" style="--d:.1s"><span class="shine">Kiran</span></span>
+        <span class="hero__amp reveal" style="--d:.25s"><span class="shine">&amp;</span></span>
+        <span class="reveal" style="--d:.4s"><span class="shine">Ramya</span></span>
+      </h1>
+      <p class="hero__tag reveal" style="--d:.6s">are getting married</p>
+      <div class="hero__flourish reveal" style="--d:.75s">
+        <svg class="ornament ornament--light" viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="10" y1="10" x2="62" y2="10" stroke="currentColor" stroke-width="1"/>
+          <line x1="118" y1="10" x2="170" y2="10" stroke="currentColor" stroke-width="1"/>
+          <circle cx="66" cy="10" r="1.6" fill="currentColor"/>
+          <circle cx="114" cy="10" r="1.6" fill="currentColor"/>
+          <path d="M82 10 C 78 5, 72 5, 71 10 C 72 15, 78 15, 82 10 Z" fill="currentColor" opacity=".7"/>
+          <path d="M98 10 C 102 5, 108 5, 109 10 C 108 15, 102 15, 98 10 Z" fill="currentColor" opacity=".7"/>
+          <path d="M90 2 L94 10 L90 18 L86 10 Z" fill="currentColor"/>
+        </svg>
+      </div>
+    </div>
+    <a href="#story" class="hero__scroll" data-scroll aria-label="Scroll down">
+      <span class="hero__mouse"></span>
+      <span class="hero__scrolltext">scroll</span>
+    </a>
+  </section>
+
+  <!-- ===== QUOTE / INTRO ===== -->
+  <section class="quote reveal-section">
+    <div class="quote__ornament">&#10086;</div>
+    <p class="quote__text">
+      &ldquo;And suddenly all the love songs were about you.&rdquo;
+    </p>
+    <p class="quote__sub">Two souls, one beautiful beginning.</p>
+  </section>
+
+  <!-- ===== OUR STORY ===== -->
+  <section class="story" id="story">
+    <div class="section-head reveal-section">
+      <p class="section-head__eyebrow">how it all began</p>
+      <h2 class="section-head__title">Our Story</h2>
+      <svg class="ornament" viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="10" y1="10" x2="62" y2="10" stroke="currentColor" stroke-width="1"/>
+        <line x1="118" y1="10" x2="170" y2="10" stroke="currentColor" stroke-width="1"/>
+        <circle cx="66" cy="10" r="1.6" fill="currentColor"/>
+        <circle cx="114" cy="10" r="1.6" fill="currentColor"/>
+        <path d="M82 10 C 78 5, 72 5, 71 10 C 72 15, 78 15, 82 10 Z" fill="#E3CE9B"/>
+        <path d="M98 10 C 102 5, 108 5, 109 10 C 108 15, 102 15, 98 10 Z" fill="#E3CE9B"/>
+        <path d="M90 2 L94 10 L90 18 L86 10 Z" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <div class="story__row reveal-section">
+      <div class="story__media" data-tilt>
+        <img src="assets/images/sunset-mountains.jpg" alt="Watching the sunset together" />
+        <span class="story__frame"></span>
+      </div>
+      <div class="story__text">
+        <span class="story__step">01</span>
+        <h3>Where it started</h3>
+        <p>Some people search a lifetime for the one who feels like home. For us, it took a single golden evening under the mountains to know — this was forever.</p>
+      </div>
+    </div>
+
+    <div class="story__row story__row--rev reveal-section">
+      <div class="story__media" data-tilt>
+        <img src="assets/images/proposal-waterfall.jpg" alt="The proposal at the waterfall" />
+        <span class="story__frame"></span>
+      </div>
+      <div class="story__text">
+        <span class="story__step">02</span>
+        <h3>The question</h3>
+        <p>Beneath a roaring waterfall, on one knee amid the wildflowers, a question was asked and a &ldquo;yes&rdquo; echoed through the valley. The easiest yes in the world.</p>
+      </div>
+    </div>
+
+    <div class="story__row reveal-section">
+      <div class="story__media" data-tilt>
+        <img src="assets/images/dance-meadow.jpg" alt="Dancing in the meadow" />
+        <span class="story__frame"></span>
+      </div>
+      <div class="story__text">
+        <span class="story__step">03</span>
+        <h3>Forever begins</h3>
+        <p>Now we dance through life together, hand in hand. And we&rsquo;d be honoured to have you dance alongside us as we say &ldquo;I do.&rdquo;</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHOTO INTERLUDE ===== -->
+  <section class="interlude">
+    <div class="interlude__bg" data-parallax>
+      <img src="assets/images/sunset-mountains.jpg" alt="" aria-hidden="true" />
+    </div>
+    <div class="interlude__veil"></div>
+    <div class="interlude__inner reveal-section">
+      <p class="interlude__eyebrow">two hearts, one journey</p>
+      <h2 class="interlude__title">Every love story is beautiful,<br />but ours is our favourite.</h2>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery" id="gallery">
+    <div class="section-head reveal-section">
+      <p class="section-head__eyebrow">a few of our favourites</p>
+      <h2 class="section-head__title">Captured Moments</h2>
+      <svg class="ornament" viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="10" y1="10" x2="62" y2="10" stroke="currentColor" stroke-width="1"/>
+        <line x1="118" y1="10" x2="170" y2="10" stroke="currentColor" stroke-width="1"/>
+        <circle cx="66" cy="10" r="1.6" fill="currentColor"/>
+        <circle cx="114" cy="10" r="1.6" fill="currentColor"/>
+        <path d="M82 10 C 78 5, 72 5, 71 10 C 72 15, 78 15, 82 10 Z" fill="#E3CE9B"/>
+        <path d="M98 10 C 102 5, 108 5, 109 10 C 108 15, 102 15, 98 10 Z" fill="#E3CE9B"/>
+        <path d="M90 2 L94 10 L90 18 L86 10 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="gallery__grid" id="galleryGrid">
+      <figure class="gallery__item reveal-section" data-full="assets/images/portrait-pink.jpg"><img src="assets/images/portrait-pink.jpg" alt="Traditional portrait" loading="lazy" decoding="async" width="913" height="1373" /><figcaption>Tradition &amp; togetherness</figcaption></figure>
+      <figure class="gallery__item reveal-section" data-full="assets/images/proposal-waterfall.jpg"><img src="assets/images/proposal-waterfall.jpg" alt="The proposal" loading="lazy" decoding="async" width="832" height="1287" /><figcaption>The proposal</figcaption></figure>
+      <figure class="gallery__item reveal-section" data-full="assets/images/sunset-mountains.jpg"><img src="assets/images/sunset-mountains.jpg" alt="Sunset together" loading="lazy" decoding="async" width="912" height="1290" /><figcaption>Golden hour</figcaption></figure>
+      <figure class="gallery__item reveal-section" data-full="assets/images/engagement-blue.jpg"><img src="assets/images/engagement-blue.jpg" alt="Engagement ceremony" loading="lazy" decoding="async" width="961" height="1323" /><figcaption>The engagement</figcaption></figure>
+      <figure class="gallery__item reveal-section" data-full="assets/images/portrait-embrace.jpg"><img src="assets/images/portrait-embrace.jpg" alt="Portrait embrace" loading="lazy" decoding="async" width="924" height="1399" /><figcaption>Just us</figcaption></figure>
+      <figure class="gallery__item reveal-section" data-full="assets/images/dance-meadow.jpg"><img src="assets/images/dance-meadow.jpg" alt="Dancing in the meadow" loading="lazy" decoding="async" width="841" height="1285" /><figcaption>Our first dance</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ===== CLOSING ===== -->
+  <section class="closing">
+    <div class="closing__inner reveal-section">
+      <p class="closing__script">With love,</p>
+      <h2 class="closing__names">Kiran &amp; Ramya</h2>
+      <svg class="ornament" viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="10" y1="10" x2="62" y2="10" stroke="currentColor" stroke-width="1"/>
+        <line x1="118" y1="10" x2="170" y2="10" stroke="currentColor" stroke-width="1"/>
+        <circle cx="66" cy="10" r="1.6" fill="currentColor"/>
+        <circle cx="114" cy="10" r="1.6" fill="currentColor"/>
+        <path d="M82 10 C 78 5, 72 5, 71 10 C 72 15, 78 15, 82 10 Z" fill="#E3CE9B"/>
+        <path d="M98 10 C 102 5, 108 5, 109 10 C 108 15, 102 15, 98 10 Z" fill="#E3CE9B"/>
+        <path d="M90 2 L94 10 L90 18 L86 10 Z" fill="currentColor"/>
+      </svg>
+      <p class="closing__text">Thank you for being part of our story. We can&rsquo;t wait to celebrate love, laughter and forever &mdash; with you by our side.</p>
+    </div>
+  </section>
+
+  <!-- ===== TEAM ===== -->
+  <section class="team">
+    <div class="section-head reveal-section">
+      <p class="section-head__eyebrow">the hands behind the magic</p>
+      <h2 class="section-head__title">Team CogniAI</h2>
+      <svg class="ornament" viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="10" y1="10" x2="62" y2="10" stroke="currentColor" stroke-width="1"/>
+        <line x1="118" y1="10" x2="170" y2="10" stroke="currentColor" stroke-width="1"/>
+        <circle cx="66" cy="10" r="1.6" fill="currentColor"/>
+        <circle cx="114" cy="10" r="1.6" fill="currentColor"/>
+        <path d="M82 10 C 78 5, 72 5, 71 10 C 72 15, 78 15, 82 10 Z" fill="#E3CE9B"/>
+        <path d="M98 10 C 102 5, 108 5, 109 10 C 108 15, 102 15, 98 10 Z" fill="#E3CE9B"/>
+        <path d="M90 2 L94 10 L90 18 L86 10 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <figure class="team__collage reveal-section">
+      <picture>
+        <source media="(max-width: 700px)" srcset="assets/images/team-collage-square.jpg" />
+        <img src="assets/images/team-collage-wide.jpg" alt="The seventeen members of Team CogniAI" loading="lazy" decoding="async" width="1556" height="932" />
+      </picture>
+      <figcaption>seventeen hearts &middot; one labour of love &mdash; for Kiran &amp; Ramya</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__monogram">K <span>&amp;</span> R</div>
+    <p class="footer__names">Kiran &amp; Ramya</p>
+    <p class="footer__date">forever &amp; always</p>
+    <svg class="ornament ornament--light" viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="10" y1="10" x2="62" y2="10" stroke="currentColor" stroke-width="1"/>
+      <line x1="118" y1="10" x2="170" y2="10" stroke="currentColor" stroke-width="1"/>
+      <circle cx="66" cy="10" r="1.6" fill="currentColor"/>
+      <circle cx="114" cy="10" r="1.6" fill="currentColor"/>
+      <path d="M82 10 C 78 5, 72 5, 71 10 C 72 15, 78 15, 82 10 Z" fill="currentColor" opacity=".7"/>
+      <path d="M98 10 C 102 5, 108 5, 109 10 C 108 15, 102 15, 98 10 Z" fill="currentColor" opacity=".7"/>
+      <path d="M90 2 L94 10 L90 18 L86 10 Z" fill="currentColor"/>
+    </svg>
+    <p class="footer__made">#KiranWedsRamya</p>
+    <p class="footer__made footer__credit">Made with love &#128153; by Team CogniAI</p>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lightbox__nav lightbox__prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" id="lbImg" src="" alt="" />
+      <figcaption class="lightbox__meta">
+        <span class="lightbox__caption" id="lbCaption"></span>
+        <span class="lightbox__counter" id="lbCounter"></span>
+      </figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__next" id="lbNext" aria-label="Next">&#8250;</button>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

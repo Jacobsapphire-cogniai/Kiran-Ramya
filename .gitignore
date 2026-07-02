@@ -1,0 +1,8 @@
+# originals & source material (site uses the copies in assets/)
+Media (*).jpg
+team pics/
+0.0-13.0.mp4
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
