@@ -6,3 +6,5 @@ team pics/
 Thumbs.db
 *.log
 node_modules/
+*.py
+
